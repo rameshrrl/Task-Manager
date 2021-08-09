@@ -47,14 +47,14 @@ app.post('/user/register', async (req, res) => {
 
 app.post('/user/login', async (req, res) => {
     try {
-        user = req.body;
-        user = await db.collection('users').findOne({name: user.name, phone: user.phone});
-        updateData = {
+        const user = req.body;
+        const user = await db.collection('users').findOne({name: user.name, phone: user.phone});
+        let updateData = {
             $set: {
                 'token': await generateToken(user.phone)
             }
         }
-        currentUser = await db.collection('users').findOneAndUpdate({ _id: ObjectID(user._id) }, updateData, {returnOriginal: false});
+        const currentUser = await db.collection('users').findOneAndUpdate({ _id: ObjectID(user._id) }, updateData, {returnOriginal: false});
         if(!currentUser) throw new Error()
         res.send(currentUser.value)
     } catch (error) {
@@ -64,8 +64,8 @@ app.post('/user/login', async (req, res) => {
 
 app.get('/user/logout', auth, async (req, res) => {
     try {
-        user = req.user;
-        updateData = {
+        const user = req.user;
+        const updateData = {
             $set: {
                 'token': undefined
             }
@@ -79,7 +79,7 @@ app.get('/user/logout', auth, async (req, res) => {
 
 app.get('/user/details', auth, (req, res) => {
     try {
-        user = req.user;
+        const user = req.user;
         res.send(user);
     } catch (error) {
         res.status(404).send('Error in fetching a user');
@@ -88,8 +88,8 @@ app.get('/user/details', auth, (req, res) => {
 
 app.delete('/user/delete', auth, async (req, res) => {
     try {
-        user = req.user;
-        deletedUser = await db.collection('users').findOneAndDelete({ 'phone': user.phone });
+        const user = req.user;
+        const deletedUser = await db.collection('users').findOneAndDelete({ 'phone': user.phone });
         res.send(deletedUser)
     } catch (error) {
         res.status(404).send('Error in deleting a user');
@@ -98,8 +98,8 @@ app.delete('/user/delete', auth, async (req, res) => {
 
 app.put('/user/update', auth, async (req, res) => {
     try {
-        reqBody = req.body;
-        updateData = {
+        const reqBody = req.body;
+        const updateData = {
             $set:
             {
                 'phone': reqBody.phone,
@@ -107,7 +107,7 @@ app.put('/user/update', auth, async (req, res) => {
                 'token': await generateToken(reqBody.phone)
             }
         }
-        user = await db.collection('users').findOneAndUpdate({ _id: ObjectID(req.user._id) }, updateData, {returnOriginal: false});
+        const user = await db.collection('users').findOneAndUpdate({ _id: ObjectID(req.user._id) }, updateData, {returnOriginal: false});
         res.send(user.value)
     } catch (error) {
         res.status(404).send('Error in updating a user');
@@ -132,8 +132,8 @@ app.post('/task/create', auth, async (req, res) => {
 
 app.get('/task/list', auth, async (req, res) => {
     try {
-        user = req.user._id;
-        tasks = await db.collection('tasks').find({user}).toArray()
+        const user = req.user._id;
+        const tasks = await db.collection('tasks').find({user}).toArray()
         res.send(tasks);
     } catch (error) {
         res.status(404).send('Error in fetching tasks');
