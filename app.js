@@ -21,8 +21,8 @@ app.use((req, res, next) => {
 
 mongoose.connect(database, dep)
   .then(() => {
-    console.log(chalk.blue.inverse("Database connected sucessfully!"));
+    console.log("Database connected sucessfully!");
     app.listen(port,() => {
-        console.log(chalk.green.inverse(`Sever Listening on PORT: ${port}`));
+        console.log(`Sever Listening on PORT: ${port}`);
     })
-}).catch(err => console.log(chalk.red(err)));
+}).catch(err => console.log(err));
