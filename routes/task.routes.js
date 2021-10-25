@@ -7,4 +7,4 @@ taskRoutes.get('/:id', getTask);
 taskRoutes.put('/update', updateTask);
 taskRoutes.delete('/remove', deleteTask);
 
-export { taskRoutes }
+export { taskRoutes };

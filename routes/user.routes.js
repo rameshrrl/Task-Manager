@@ -11,4 +11,4 @@ userRoutes.delete('/remove', auth, deleteUser);
 userRoutes.post('/login', loginUser);
 userRoutes.get('/logout', auth, logoutUser);
 
-export { userRoutes }
+export { userRoutes };

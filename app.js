@@ -1,11 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from "dotenv";
-dotenv.config();
+import { applicationRouter } from "./routes/index.routes";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+dotenv.config();
 
 const dep = { useNewUrlParser: true, useUnifiedTopology: true };
 const port = process.env.PORT || 4000;
@@ -17,6 +18,7 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
     next();
 });
+app.use('/', applicationRouter);
 
 mongoose.connect(database, dep)
   .then(() => {
