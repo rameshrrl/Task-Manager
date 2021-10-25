@@ -47,8 +47,8 @@ app.post('/user/register', async (req, res) => {
 
 app.post('/user/login', async (req, res) => {
     try {
-        const user = req.body;
-        const user = await db.collection('users').findOne({name: user.name, phone: user.phone});
+        let user = req.body;
+        user = await db.collection('users').findOne({name: user.name, phone: user.phone});
         let updateData = {
             $set: {
                 'token': await generateToken(user.phone)
