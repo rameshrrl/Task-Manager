@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 export const auth = async (req, res, next) => {
     try {
         const token = req.header('authorization').replace('Bearer ', '')
-        const decoded = jwt.verify(token, config.secretKey);
+        const decoded = jwt.verify(token, process.env.SECRETKEY);
         const user = User.findOne({email: decoded.email, token: token});
         if (!user) throw new Error();
         req.user = user;
