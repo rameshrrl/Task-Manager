@@ -16,12 +16,19 @@ const userSchema = mongoose.Schema({
         },
         number: {
             type: String,
-            require: true
-        }
+            require: true,
+            unique: true
+        },
     },
     email: {
         type: String,
-        require: true
+        require: true,
+        unique: true,
+        index: true
+    },
+    password: {
+        type: String,
+        require: true,
     },
     status: {
         type: Boolean,
@@ -31,6 +38,11 @@ const userSchema = mongoose.Schema({
     lastLogin: {
         type: Date,
         require: false,
+        default: null
+    },
+    token: {
+        type: String,
+        require: true,
         default: null
     }
 }, {
