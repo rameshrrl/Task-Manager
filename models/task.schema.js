@@ -17,4 +17,4 @@ const taskSchema = mongoose.Schema({
     versionKey: false
 })
 
-export const task =  mongoose.model('task', taskSchema, 'task')
+export default mongoose.model('task', taskSchema, 'task')
