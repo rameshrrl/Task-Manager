@@ -1,12 +1,7 @@
 import User from "../models/user.schema";
 import { login } from "../services/user.service";
 import bcrypt from "bcryptjs";
-
-let response = {
-    status: false,
-    message: '',
-    response: null
-}
+import { generateResponse } from "../helpers/response";
 
 export const createUser = async (req, res) => {
     try {
@@ -21,19 +16,15 @@ export const createUser = async (req, res) => {
         User.create(user).then(async (createdUser) => {
 
             login(createdUser).then((updatedUser) => {
-                response.status = true;
-                response.message = 'Registered successfully!';
-                response.response = updatedUser;
-                res.status(201).send(response);
+                res.status(201).send(generateResponse('Registered successfully!', true, updatedUser));
             }).catch(() => {throw new Error()})
 
         }).catch((err) => {
-            response.message = 'Registration failed!';
-            res.status(400).send(response);
+            res.status(400).send(generateResponse('Registration failed!'));
         });
 
     } catch (error) {
-        res.status(400).send('Error in registering a user!');
+        res.status(400).send(generateResponse('Error in registering a user!'));
     }   
 }
 
@@ -72,23 +63,17 @@ export const loginUser = async (req, res) => {
         const checkPassword = await bcrypt.compare(password, user.password);
 
         if(!checkPassword) {
-            response.message = 'Invalid login credentials';
-            response['response'];
-            return res.status(401).send(response);
+            return res.status(401).send(generateResponse('Invalid login credentials'));
         }
 
         await login(user).then((updatedUser) => {
-            response.status = true;
-            response.message = 'Logged in successfully!';
-            response.response = updatedUser;
-            res.status(201).send(response);
+            res.status(201).send(generateResponse('Logged in successfully!', true, updatedUser));
         }).catch((err) => {
             throw new Error();
         })
 
     } catch (error) {
-        console.log(error);
-        res.status(400).send('Error in Login!');
+        res.status(400).send(generateResponse('Error in Login!'));
     }
 }
 
