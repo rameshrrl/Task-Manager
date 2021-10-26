@@ -3,15 +3,13 @@ import mongoose from 'mongoose';
 const taskSchema = mongoose.Schema({
     title: {
         type: String,
-        require: true
+        required: true
     },
     description : {
         type: String,
-        require: true
+        required: true
     },
-    user: {
-        type: { ObjectId , ref: 'user'}
-    }
+    user: {type : mongoose.ObjectId , ref: 'user'}
 }, {
     timestamps: true,
     versionKey: false
