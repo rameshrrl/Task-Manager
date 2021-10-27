@@ -21,10 +21,10 @@ Simple **NodeJS!** task manager application for practicing CRUD operations and A
 
 ## Features
 
-☑️ **Promise based!**.
-☑️ **ES6 and above standard javascript!**. 
-☑️ **Clean and functional response structure!**.
-☑️ **Authenticated with JWT!**.
+☑️ **Promise based!**.<br />
+☑️ **ES6 and above standard javascript!**.<br />
+☑️ **Clean and functional response structure!**.<br />
+☑️ **Authenticated with JWT!**.<br />
 
 ## Getting Started
 
@@ -48,7 +48,7 @@ This application uses `JWT` authentication to ensure every API is authenticated 
 
 ### Create A User
 
-```http
+```shell
   POST {{baseURL}}/user/register
 ```
 
@@ -69,7 +69,7 @@ This application uses `JWT` authentication to ensure every API is authenticated 
 
 ### Get A User
 
-```http
+```shell
   GET {{baseURL}}/user
 ```
 
@@ -78,7 +78,7 @@ To get specific user details no need to pass any parameters. The application wil
 
 ### Update A User
 
-```http
+```shell
   PUT {{baseURL}}/user/update
 ```
 
@@ -88,7 +88,7 @@ Update operations also follow the same request structure of creating [Create A U
 
 ### Delete A User
 
-```http
+```shell
   DELETE {{baseURL}}/user/remove
 ```
 
@@ -96,7 +96,7 @@ The application will delete the authenticated user data automatically when you a
 
 ### Login A User
 
-```http
+```shell
   POST {{baseURL}}/user/login
 ```
 
@@ -109,7 +109,7 @@ The application will delete the authenticated user data automatically when you a
 
 ### Logout A User
 
-```http
+```shell
   GET {{baseURL}}/user/logout
 ```
 
@@ -117,7 +117,7 @@ The application will log you out automatically when you access it with the authe
 
 ### Create A Task
 
-```http
+```shell
   POST {{baseURL}}/task/create
 ```
 
@@ -132,7 +132,7 @@ The application will log you out automatically when you access it with the authe
 
 ### Get A Task
 
-```http
+```shell
   GET {{baseURL}}/task/:id?
 ```
 
@@ -140,7 +140,7 @@ The **id** is optional. When you pass the id application will return you a singl
 
 ### Update A Task
 
-```http
+```shell
   PUT {{baseURL}}/task/update
 ```
 
@@ -156,7 +156,7 @@ The **id** is optional. When you pass the id application will return you a singl
 
 ### Delete A Task
 
-```http
+```shell
   DELETE {{baseURL}}/task/remove
 ```
 
