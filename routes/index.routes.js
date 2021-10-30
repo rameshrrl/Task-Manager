@@ -8,8 +8,8 @@ import { unknownRoute } from "../helpers/unknownRoutes";
 
 applicationRouter.use('/user', userRoutes);
 applicationRouter.use('/task', auth, taskRoutes);
-applicationRouter.use(unknownRoute);
 
 applicationRouter.get('/', (req, res) => { readFile('./views/index.html', 'utf8').then((view) => res.send(view))});
+applicationRouter.use(unknownRoute);
 
 export { applicationRouter };
