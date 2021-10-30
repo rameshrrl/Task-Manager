@@ -42,7 +42,7 @@ export const getTask = async (req, res) => {
 
             const fetchedTasks = await Task.find({user: user._id }).sort({createdAt : -1}).skip(skip).limit(limit).exec();
 
-            if(!count) res.status(400).send(generateResponse('Tasks not found!'));
+            if(!count) res.status(404).send(generateResponse('Tasks not found!'));
 
             let response = {
                 count,

@@ -53,7 +53,6 @@ export const updateUser = async (req, res) => {
             res.status(400).send(generateResponse('Updating user details failed!'));
         })
 
-
     } catch (error) {
         res.status(400).send(generateResponse('Error in updating user details!'));
     }
@@ -83,7 +82,7 @@ export const loginUser = async (req, res) => {
         const checkPassword = await bcrypt.compare(password, user.password);
 
         if(!checkPassword) {
-            return res.status(401).send(generateResponse('Invalid login credentials'));
+            return res.status(400).send(generateResponse('Invalid login credentials'));
         }
 
         user.token = await generateToken(user.email);
