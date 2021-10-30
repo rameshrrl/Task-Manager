@@ -143,7 +143,7 @@ The application will log you out automatically when you access it with the authe
   GET {{baseURL}}/task/:id?
 ```
 
-**Get Multiple Task**
+**Get Multiple Tasks**
 
 ```shell
   GET {{base_url}}/task?skip={{number}}&limit={{number}}
@@ -185,7 +185,7 @@ This application can support multiple delete and single delete as well. Check be
   }
 ```
 
-**Delete Multiple Task**
+**Delete Multiple Tasks**
 
 ```json
   {
