@@ -1,8 +1,10 @@
 # Task Manager
 
-Simple **NodeJS!** task manager application for practicing CRUD operations and Authentication.
+**NodeJS!** task manager application for practicing CRUD operations and Authentication. This application has all the basic API practices like request query, params, body communications APIs with pagination and authentication. So one can get the required knowledge of working with the APIs easily with this application.
 
 **Live application link** : [Application Link](https://rameshrrl-task-manager.herokuapp.com), use this link as a **base URL** and dive into the [Get Started](#get-started) section to learn more.
+
+**Note:** `{{}}` With words are for placeholder purposes only. Make sure you're not using any `{{}}` while communicating with the APIs.
 
 ## Table of content
 
@@ -126,19 +128,30 @@ The application will log you out automatically when you access it with the authe
 ```json
   {
     "task": {
-    "title": "{{$randomJobTitle}}",
-    "description": "{{$randomPhrase}}"
+      "title": "{{$randomJobTitle}}",
+      "description": "{{$randomPhrase}}"
     }
   }
 ```
 
 ### Get A Task
 
+
+**Get Single Task**
+
 ```shell
   GET {{baseURL}}/task/:id?
 ```
 
+**Get Multiple Task**
+
+```shell
+  GET {{base_url}}/task?skip={{number}}&limit={{number}}
+```
+
 The **id** is optional. When you pass the id application will return you a single task **Object** that matches the given task **id**. Otherwise, it will return an **Array** of tasks associated with the authenticated user.
+
+When you fetch **Array** of tasks you can fetch using `skip` and `limit` properties. By default, the application will fetch the first 10 tasks as a result. Hence the default `skip` value is `0` and `limit` is `10`.
 
 ### Update A Task
 
@@ -164,19 +177,19 @@ The **id** is optional. When you pass the id application will return you a singl
 
 This application can support multiple delete and single delete as well. Check below request methods to learn more.
 
-**Delete Multiple Task**
-
-```json
-  {
-    "ids": ["taskID1", "taskID2"]
-  }
-```
-
 **Delete Single Task**
 
 ```json
   {
     "ids": "{{taskID}}"
+  }
+```
+
+**Delete Multiple Task**
+
+```json
+  {
+    "ids": ["taskID1", "taskID2"]
   }
 ```
 
