@@ -2,7 +2,7 @@
 
 Simple **NodeJS!** task manager application for practicing CRUD operations and Authentication.
 
-**Live application link** : [Application Link](https://rameshrrl-task-manager.herokuapp.com), use this link as a **base URL** and dive into the [Get Started](#getting-started) section to learn more.
+**Live application link** : [Application Link](https://rameshrrl-task-manager.herokuapp.com), use this link as a **base URL** and dive into the [Get Started](#get-started) section to learn more.
 
 ## Table of content
 
