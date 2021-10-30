@@ -22,8 +22,13 @@ export const createTask = async (req, res) => {
 
 export const getTask = async (req, res) => {
     try {
+
         const { id } = req.params;
         const user = req.user;
+        let { skip , limit } = req.query;
+
+        skip = skip ? parseInt(skip) : 0;
+        limit = limit ? parseInt(limit) : 10;
 
         if(id) {
             
@@ -33,10 +38,18 @@ export const getTask = async (req, res) => {
     
         } else {
 
-            Task.find({user: user._id }).exec().then((fetchedTasks) => {
-                res.status(200).send(generateResponse('Tasks fetched successfully!', true, fetchedTasks));
-            }).catch(() => res.status(400).send(generateResponse('Tasks not found!')));
+            const count = await Task.find({user: user._id }).count();
 
+            const fetchedTasks = await Task.find({user: user._id }).sort({createdAt : -1}).skip(skip).limit(limit).exec();
+
+            if(!count) res.status(400).send(generateResponse('Tasks not found!'));
+
+            let response = {
+                count,
+                tasks: fetchedTasks
+            }
+            
+            res.status(200).send(generateResponse('Tasks fetched successfully!', true, response));
         }
 
     } catch (error) {
