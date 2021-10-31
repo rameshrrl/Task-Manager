@@ -47,6 +47,12 @@ export const updateUser = async (req, res) => {
             user.token = await generateToken(user.email);
         }
 
+        if(user.password) {
+            const salt = bcrypt.genSaltSync(10);
+            const passwordHash = bcrypt.hashSync(user.password, salt);
+            user.password = passwordHash;
+        }
+
         User.findOneAndUpdate({ email: currentUser.email }, user, { new: true }).select({password: 0}).then((updatedUser) => {
             res.status(200).send(generateResponse('Updated successfully!', true, updatedUser));
         }).catch(() => {
