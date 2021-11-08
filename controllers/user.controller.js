@@ -15,9 +15,19 @@ export const createUser = async (req, res) => {
 
         user.token = await generateToken(user.email);
 
-        User.create(user).then(async (createdUser) => {
+        User.create(user).then((createdUser) => {
             res.status(201).send(generateResponse('Registered successfully!', true, createdUser));
         }).catch((err) => {
+
+            if(err.code === 11000){
+
+                const errorKey = Object.getOwnPropertyNames(err.keyValue)[0];
+
+                if(errorKey === 'email') return res.status(400).send(generateResponse('Email already exists!'));
+
+                if(errorKey === 'phone.number') return res.status(400).send(generateResponse('Phone number already exists!'));
+            }
+
             res.status(400).send(generateResponse('Registration failed!'));
         });
 
