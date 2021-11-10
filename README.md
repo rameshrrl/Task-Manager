@@ -159,7 +159,7 @@ When you fetch **Array** of tasks you can fetch using `skip` and `limit` propert
   PUT {{baseURL}}/task/update
 ```
 
-```javascript
+```json
   {
     "task": {
             "_id": "{{taskID}}",

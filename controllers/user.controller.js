@@ -117,8 +117,8 @@ export const logoutUser = async (req, res) => {
 
         user.token = null;
         user.lastLogin = new Date();
-        User.findOneAndUpdate({ email: user.email }, user, {new: true}).select({password: 0}).then((loggedOut) => {
-            res.status(200).send(generateResponse('Logged out successfully!', true, loggedOut));
+        User.findOneAndUpdate({ email: user.email }, user, {new: true}).select({password: 0}).then(() => {
+            res.status(200).send(generateResponse('Logged out successfully!', true));
         }).catch((err) => {throw new Error()});
 
     } catch (error) {
