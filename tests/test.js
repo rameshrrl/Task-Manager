@@ -1,7 +1,6 @@
 import { generateToken } from "../helpers/generateToken";
 
 test('generateToken', () => {
-    return fetchData(generateToken('sample@gmail.com')).then(data => {
-        expect(data).toBe(String);
-    });
+    const data = await generateToken('sample@gmail.com');
+    expect(data).toBe(String);
 })
