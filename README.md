@@ -140,7 +140,7 @@ The application will log you out automatically when you access it with the authe
 **Get Single Task**
 
 ```shell
-  GET {{baseURL}}/task/:id?
+  GET {{baseURL}}/task/{{taskId}}
 ```
 
 **Get Multiple Tasks**
