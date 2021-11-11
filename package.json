@@ -8,7 +8,18 @@
     "dev": "nodemon --es-module-specifier-resolution=node app.js",
     "test": "jest"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rameshrrl/Task-Manager.git"
+  },
+  "keywords": [
+    "crud",
+    "authentication",
+    "rest",
+    "api",
+    "promise",
+    "pagination"
+  ],
   "author": "",
   "license": "ISC",
   "type": "module",
