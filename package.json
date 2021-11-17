@@ -1,13 +1,25 @@
 {
-  "name": "Task-Manager",
-  "version": "2.7.2",
+  "name": "task-manager",
+  "version": "2.8.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node --es-module-specifier-resolution=node app.js",
-    "dev": "nodemon --es-module-specifier-resolution=node app.js"
+    "dev": "nodemon --es-module-specifier-resolution=node app.js",
+    "test": "jest"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rameshrrl/Task-Manager.git"
+  },
+  "keywords": [
+    "crud",
+    "authentication",
+    "rest",
+    "api",
+    "promise",
+    "pagination"
+  ],
   "author": "",
   "license": "ISC",
   "type": "module",
@@ -19,6 +31,12 @@
     "mongoose": "^6.0.12"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.0",
+    "@types/jest": "^27.0.2",
+    "babel-jest": "^27.3.1",
+    "jest": "^27.3.1",
+    "jest-cli": "^27.3.1",
     "nodemon": "^2.0.14"
   }
 }
