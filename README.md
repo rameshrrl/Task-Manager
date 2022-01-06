@@ -21,6 +21,7 @@
 - [Get A Task](#get-a-task)
 - [Update A Task](#update-a-task)
 - [Delete A Task](#delete-a-task)
+- [License](#license)
 - [Contribute](#contribute)
 
 ## Features
@@ -192,6 +193,10 @@ This application can support multiple delete and single delete as well. Check be
     "ids": ["taskID1", "taskID2"]
   }
 ```
+
+## License
+
+This project is licensed under the [MIT License](https://github.com/rameshrrl/task-manager/blob/main/LICENSE)
 
 ## Contribute
 
