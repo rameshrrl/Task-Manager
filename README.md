@@ -47,7 +47,7 @@ This application uses the **common response structure**. That ensures organized 
 
 This application uses `JWT` authentication to ensure every API is authenticated except Register and Login APIs. Also add the `Bearer token` in all the API headers with the key of **authorization**.
 
-```json
+```console
 'Bearer <authenticationToken>'
 ```
 
