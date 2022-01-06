@@ -47,13 +47,13 @@ This application uses the **common response structure**. That ensures organized 
 
 This application uses `JWT` authentication to ensure every API is authenticated except Register and Login APIs. Also add the `Bearer token` in all the API headers with the key of **authorization**.
 
-```javascript
+```json
 'Bearer <authenticationToken>'
 ```
 
 ### Create A User
 
-```shell
+```console
   POST {{baseURL}}/user/register
 ```
 
@@ -74,7 +74,7 @@ This application uses `JWT` authentication to ensure every API is authenticated 
 
 ### Get A User
 
-```shell
+```console
   GET {{baseURL}}/user
 ```
 
@@ -83,7 +83,7 @@ To get specific user details no need to pass any parameters. The application wil
 
 ### Update A User
 
-```shell
+```console
   PUT {{baseURL}}/user/update
 ```
 
@@ -93,7 +93,7 @@ Update operations also follow the same request structure of creating [Create A U
 
 ### Delete A User
 
-```shell
+```console
   DELETE {{baseURL}}/user/remove
 ```
 
@@ -101,7 +101,7 @@ The application will delete the authenticated user data automatically when you a
 
 ### Login A User
 
-```shell
+```console
   POST {{baseURL}}/user/login
 ```
 
@@ -114,7 +114,7 @@ The application will delete the authenticated user data automatically when you a
 
 ### Logout A User
 
-```shell
+```console
   GET {{baseURL}}/user/logout
 ```
 
@@ -122,7 +122,7 @@ The application will log you out automatically when you access it with the authe
 
 ### Create A Task
 
-```shell
+```console
   POST {{baseURL}}/task/create
 ```
 
@@ -140,13 +140,13 @@ The application will log you out automatically when you access it with the authe
 
 **Get Single Task**
 
-```shell
+```console
   GET {{baseURL}}/task/{{taskId}}
 ```
 
 **Get Multiple Tasks**
 
-```shell
+```console
   GET {{base_url}}/task?skip={{number}}&limit={{number}}
 ```
 
@@ -156,7 +156,7 @@ When you fetch **Array** of tasks you can fetch using `skip` and `limit` propert
 
 ### Update A Task
 
-```shell
+```console
   PUT {{baseURL}}/task/update
 ```
 
@@ -172,7 +172,7 @@ When you fetch **Array** of tasks you can fetch using `skip` and `limit` propert
 
 ### Delete A Task
 
-```shell
+```console
   DELETE {{baseURL}}/task/remove
 ```
 
