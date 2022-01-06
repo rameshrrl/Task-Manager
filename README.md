@@ -26,10 +26,10 @@
 
 ## Features
 
-☑️ **Promise based!**.<br />
-☑️ **ES6 and above standard javascript!**.<br />
-☑️ **Clean and functional response structure!**.<br />
-☑️ **Authenticated with JWT!**.<br />
+☑️ **Promise based!**<br />
+☑️ **ES6 and above standard javascript!**<br />
+☑️ **Clean and functional response structure!**<br />
+☑️ **Authenticated with JWT!**<br />
 
 ## Get Started
 
