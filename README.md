@@ -1,6 +1,6 @@
 # Task Manager
 
-**NodeJS!** task manager application for practicing CRUD operations and Authentication. This application has all the basic API practices like request query, params, body communications APIs with pagination and authentication. So one can get the required knowledge of working with the APIs easily with this application.
+High-level NodeJS task manager application with RESTful APIs to practice CRUD operations, Authentication, Pagination with various types of Request methods. This application's function was tested with JEST unit tests and CI/CD implemented with the help of GitHub Actions. This application has all the basic API practices like request query, params, body communications APIs with pagination and authentication. So one can get the required knowledge of working with the APIs easily with this application.
 
 **Live application link** : [Application Link](https://rameshrrl-task-manager.herokuapp.com), use this link as a **base URL** and dive into the [Get Started](#get-started) section to learn more.
 
