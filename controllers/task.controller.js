@@ -16,7 +16,7 @@ export const createTask = async (req, res) => {
         })
 
     } catch (error) {
-        res.status(400).send(generateResponse('Error in creating a user!'));
+        res.status(500).send(generateResponse('Error in creating a task!'));
     }
 }
 
@@ -53,7 +53,7 @@ export const getTask = async (req, res) => {
         }
 
     } catch (error) {
-        res.status(400).send(generateResponse('Error in fetching task details!'));
+        res.status(500).send(generateResponse('Error in fetching task details!'));
     }
 }
 
@@ -66,7 +66,7 @@ export const updateTask = async (req, res) => {
         }).catch(() => res.status(400).send(generateResponse('Updating task details failed!')))
         
     } catch (error) {
-        res.status(400).send(generateResponse('Error in updating task details!'));
+        res.status(500).send(generateResponse('Error in updating task details!'));
     }
 }
 
@@ -89,6 +89,6 @@ export const deleteTask = async (req, res) => {
         }
 
     } catch (error) {
-        res.status(400).send(generateResponse('Error in deleting task details!'));
+        res.status(500).send(generateResponse('Error in deleting task details!'));
     }    
 }

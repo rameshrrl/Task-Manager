@@ -32,7 +32,7 @@ export const createUser = async (req, res) => {
         });
 
     } catch (error) {
-        res.status(400).send(generateResponse('Error in registering a user!'));
+        res.status(500).send(generateResponse('Error in registering a user!'));
     }   
 }
 
@@ -43,7 +43,7 @@ export const getUser = async (req, res) => {
         res.status(200).send(generateResponse('User details fetched!', true, user));
 
     } catch (error) {
-        res.status(400).send(generateResponse('Error in fetching user details!'));
+        res.status(500).send(generateResponse('Error in fetching user details!'));
     }
 }
 
@@ -70,7 +70,7 @@ export const updateUser = async (req, res) => {
         })
 
     } catch (error) {
-        res.status(400).send(generateResponse('Error in updating user details!'));
+        res.status(500).send(generateResponse('Error in updating user details!'));
     }
 }
 
@@ -83,7 +83,7 @@ export const deleteUser = async (req, res) => {
         }).catch(() => res.status(400).send(generateResponse('Deleting user details failed!')));
 
     } catch (error) {
-        res.status(400).send(generateResponse('Error in deleting user details!'));
+        res.status(500).send(generateResponse('Error in deleting user details!'));
     }
 }
 
@@ -107,7 +107,7 @@ export const loginUser = async (req, res) => {
         }).catch((err) => {throw new Error()});
 
     } catch (error) {
-        res.status(400).send(generateResponse('Error in Login!'));
+        res.status(500).send(generateResponse('Error in Login!'));
     }
 }
 
@@ -122,6 +122,6 @@ export const logoutUser = async (req, res) => {
         }).catch((err) => {throw new Error()});
 
     } catch (error) {
-        res.status(400).send(generateResponse('Error in Logout!'));
+        res.status(500).send(generateResponse('Error in Logout!'));
     }
 }
